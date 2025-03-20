@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS tasks (
     title TEXT NOT NULL,
     status TEXT NOT NULL,  -- 'todo', 'doing', 'done'
     user_id INTEGER,
+    description TEXT,
     FOREIGN KEY(user_id) REFERENCES users(id)
 )''')
 

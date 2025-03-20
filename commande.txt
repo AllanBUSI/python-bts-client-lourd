@@ -7,3 +7,11 @@ fichier Login / Connexion et Register
 fichier DragLabel / Drag et Drop 
 
 fichier Bord Page le dashboard
+
+installer pyinstaller
+
+py -3 -m pip install pyinstaller
+
+créer le build et exe
+
+pyinstaller --onefile --noconsole --icon=icon.ico main.py

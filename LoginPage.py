@@ -7,16 +7,35 @@ class LoginPage(tk.Frame):
         super().__init__(parent)
         self.controller = controller
 
-        tk.Label(self, text="Email:").pack(pady=5)
-        self.entry_email = tk.Entry(self)
-        self.entry_email.pack(pady=5)
+        # Frame centrale
+        frame = tk.Frame(self, bg="white", padx=200, pady=20, relief="ridge", bd=2)
+        frame.place(relx=0.5, rely=0.5, anchor="center")
 
-        tk.Label(self, text="Mot de passe:").pack(pady=5)
-        self.entry_password = tk.Entry(self, show="*")
-        self.entry_password.pack(pady=5)
+        # Titre
+        tk.Label(frame, text="Connexion", font=("Arial", 16, "bold"), bg="white", fg="#111827").pack(pady=(0, 10))
 
-        tk.Button(self, text="Se connecter", command=self.login).pack(pady=5)
-        tk.Button(self, text="S'inscrire", command=self.register).pack(pady=5)
+        # Champ Email
+        tk.Label(frame, text="Adresse e-mail", font=("Arial", 10), bg="white", fg="#6b7280").pack(anchor="w")
+        self.entry_email = tk.Entry(frame, font=("Arial", 12), bg="#f9fafb", fg="#111827", relief="flat", bd=2)
+        self.entry_email.pack(fill="x", padx=5, pady=5, ipady=5)
+        
+        # Champ Mot de passe
+        tk.Label(frame, text="Mot de passe", font=("Arial", 10), bg="white", fg="#6b7280").pack(anchor="w")
+        self.entry_password = tk.Entry(frame, font=("Arial", 12), bg="#f9fafb", fg="#111827", relief="flat", bd=2, show="*")
+        self.entry_password.pack(fill="x", padx=5, pady=5, ipady=5)
+
+        # Bouton Se connecter
+        self.btn_login = tk.Button(frame, text="Se connecter", font=("Arial", 12, "bold"), bg="#3b82f6", fg="white",
+            relief="flat", bd=0, activebackground="#2563eb", activeforeground="white",
+            command=self.login)
+        self.btn_login.pack(fill="x", pady=10, ipady=5)
+
+        # Bouton S'inscrire
+        self.btn_register = tk.Button(frame, text="S'inscrire", font=("Arial", 12, "bold"), bg="#10b981", fg="white",
+            relief="flat", bd=0, activebackground="#059669", activeforeground="white",
+            command=self.register)
+        self.btn_register.pack(fill="x", ipady=5)
+        
 
     def login(self):
         email = self.entry_email.get()
